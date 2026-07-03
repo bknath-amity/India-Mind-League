@@ -62,7 +62,7 @@
 
 /* ---------- stats bar ---------- */
 .stats-bar { padding: 0.5rem 0 1rem; }
-.sb-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem;
+.sb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;
   border: 1px solid var(--line); border-radius: 18px; background: var(--surface); padding: 1.4rem 0.8rem; }
 .sb-item { display: flex; align-items: center; justify-content: center; gap: 0.9rem; }
 .sb-item + .sb-item { border-left: 1px solid var(--line); }
@@ -71,20 +71,17 @@
 .sb-ic svg { width: 28px; height: 28px; }
 .sb-item:nth-child(1) .sb-ic { background: linear-gradient(140deg, rgba(59, 130, 246, 0.5), rgba(124, 58, 237, 0.42)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 8px 20px -10px rgba(59, 130, 246, 0.6); }
 .sb-item:nth-child(2) .sb-ic { background: linear-gradient(140deg, rgba(124, 58, 237, 0.5), rgba(236, 72, 153, 0.42)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 8px 20px -10px rgba(139, 92, 246, 0.6); }
-.sb-item:nth-child(3) .sb-ic { background: linear-gradient(140deg, rgba(236, 72, 153, 0.5), rgba(251, 146, 60, 0.42)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 8px 20px -10px rgba(236, 72, 153, 0.6); }
-.sb-item:nth-child(4) .sb-ic { background: linear-gradient(140deg, rgba(52, 211, 153, 0.5), rgba(59, 130, 246, 0.42)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 8px 20px -10px rgba(52, 211, 153, 0.6); }
+.sb-item:nth-child(3) .sb-ic { background: linear-gradient(140deg, rgba(232, 182, 74, 0.55), rgba(251, 146, 60, 0.42)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 8px 20px -10px rgba(232, 182, 74, 0.6); }
 .sb-tx b { display: block; font-family: var(--display); font-weight: 800; font-size: 1.35rem; line-height: 1; color: var(--gold); }
 .sb-tx small { color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
 @media (max-width: 700px) {
-  .sb-grid { grid-template-columns: 1fr 1fr; gap: 1rem 0.4rem; padding: 1.2rem 0.6rem; }
+  .sb-grid { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; padding: 1.2rem 0.5rem; }
   .sb-item { flex-direction: column; text-align: center; gap: 0.55rem; min-width: 0; }
-  .sb-item:nth-child(odd) { border-left: 0; }
-  .sb-item:nth-child(3), .sb-item:nth-child(4) { border-top: 1px solid var(--line); padding-top: 1rem; }
   .sb-ic { width: 46px; height: 46px; }
   .sb-ic svg { width: 24px; height: 24px; }
   .sb-tx { text-align: center; }
-  .sb-tx b { font-size: 1.12rem; white-space: nowrap; }
-  .sb-tx small { font-size: 0.65rem; letter-spacing: 0.03em; }
+  .sb-tx b { font-size: 1.05rem; white-space: nowrap; }
+  .sb-tx small { font-size: 0.62rem; letter-spacing: 0.03em; }
 }
 
 /* ---------- info trio ---------- */
