@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Student Login — India Mind League</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Student login for the India Mind League — sign in with email or phone and an OTP to reach your dashboard." />
+  <link rel="icon" type="image/png" href="images/Iml-logo-fav.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <div class="bg-aurora"></div>
+  <div class="bg-grid"></div>
+
+  <a href="index.html" class="auth-back">← Back to site</a>
+
+  <main class="auth">
+    <div class="auth-card">
+
+      <!-- LEFT · infographic -->
+      <aside class="auth-aside">
+        <div class="aa-sprites" aria-hidden="true">
+          <img class="aspr a1" src="images/sprites/globe.png" alt="" />
+          <img class="aspr a2" src="images/sprites/book.png" alt="" />
+          <img class="aspr a3" src="images/sprites/pointed%20arrow.png" alt="" />
+          <img class="aspr a4" src="images/sprites/triangle-set-sqare.png" alt="" />
+          <img class="aspr a5" src="images/sprites/dots.png" alt="" />
+        </div>
+
+        <h2 class="aa-title">Welcome back,<br><span class="gradient">Champion!</span></h2>
+        <p class="aa-sub">Log in to pick up where you left off — your qualifier, your rank and your rewards.</p>
+
+        <ul class="aa-feats">
+          <li><span class="aa-ic c-iq">🧠</span><div><b>Digital Qualifier</b><small>Resume your IQ · EQ · Values test</small></div></li>
+          <li><span class="aa-ic c-eq">📈</span><div><b>Live Leaderboard</b><small>See your rank update in real time</small></div></li>
+          <li><span class="aa-ic c-val">🏆</span><div><b>Certificates</b><small>Collect badges &amp; recognition</small></div></li>
+        </ul>
+
+        <div class="aa-stats">
+          <div><b>10k+</b><small>Students</small></div>
+          <div><b>100+</b><small>Schools</small></div>
+          <div><b>4</b><small>Stages</small></div>
+        </div>
+      </aside>
+
+      <!-- RIGHT · form -->
+      <section class="auth-form">
+        <img class="af-logo" src="images/new-logo-cut.png" alt="India Mind League" />
+        <h1 class="af-title">Student Login</h1>
+        <p class="af-lead">Sign in with a one-time password — no password to remember.</p>
+
+        <!-- method toggle -->
+        <div class="seg" role="tablist" aria-label="Login method">
+          <button class="seg-btn active" data-method="email" type="button"><svg class="seg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</button>
+          <button class="seg-btn" data-method="phone" type="button"><svg class="seg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>Phone</button>
+          <span class="seg-thumb"></span>
+        </div>
+
+        <!-- step 1 · contact -->
+        <form id="contactForm" novalidate>
+          <div class="field">
+            <label id="contactLabel" for="contact">Email address</label>
+            <input id="contact" name="contact" type="email" autocomplete="email" placeholder="you@example.com" />
+          </div>
+          <div id="msg1" class="form-msg"></div>
+          <button class="btn btn-gold-solid btn-block btn-lg" type="submit">Send OTP →</button>
+        </form>
+
+        <!-- step 2 · otp -->
+        <form id="otpForm" novalidate hidden>
+          <p class="otp-sent">We sent a 6-digit code to <b id="sentTo">you</b>. <button type="button" class="linkbtn" id="editContact">Change</button></p>
+          <div class="otp-boxes" id="otpBoxes">
+            <input inputmode="numeric" maxlength="1" aria-label="OTP digit 1" />
+            <input inputmode="numeric" maxlength="1" aria-label="OTP digit 2" />
+            <input inputmode="numeric" maxlength="1" aria-label="OTP digit 3" />
+            <input inputmode="numeric" maxlength="1" aria-label="OTP digit 4" />
+            <input inputmode="numeric" maxlength="1" aria-label="OTP digit 5" />
+            <input inputmode="numeric" maxlength="1" aria-label="OTP digit 6" />
+          </div>
+          <p class="hint" id="demoHint"></p>
+          <div id="msg2" class="form-msg"></div>
+          <button class="btn btn-gold-solid btn-block btn-lg" type="submit">Verify &amp; Login</button>
+          <p class="otp-resend">Didn't get it? <button type="button" class="linkbtn" id="resendBtn" disabled>Resend in <span id="resendIn">30</span>s</button></p>
+        </form>
+
+        <p class="af-alt">New to the League? <a href="register.html">Register here</a></p>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

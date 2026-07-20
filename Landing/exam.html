@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Digital Qualifier — India Mind League</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="images/Iml-logo-fav.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/exam.css" />
+</head>
+<body class="exam-body">
+  <div class="bg-aurora"></div>
+  <div class="bg-grid"></div>
+
+  <!-- top bar -->
+  <header class="exam-top">
+    <a href="dashboard.html" class="brand">
+      <img class="nav-logo et-logo-full" src="images/new-logo-cut.png" alt="India Mind League" />
+      <img class="et-logo-mini" src="images/new-logo-cut.png" alt="India Mind League" />
+    </a>
+    <div class="et-mid">
+      <span class="et-title">Digital Qualifier</span>
+      <span class="et-sub">Stage 1 · IQ · EQ · Values</span>
+    </div>
+    <div class="et-right">
+      <button class="et-pal" id="palToggle" aria-label="Question palette" title="Questions"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></button>
+      <div class="et-timer" id="timer"><span class="tk">⏱</span><span id="timeLeft">15:00</span></div>
+      <button class="btn-quit" id="quitBtn" title="Save &amp; exit">Exit</button>
+    </div>
+  </header>
+
+  <!-- progress -->
+  <div class="exam-progress"><span id="examBar"></span></div>
+
+  <main class="exam-wrap">
+    <!-- question column -->
+    <section class="q-col">
+      <div class="q-card">
+        <div class="q-top">
+          <span class="q-cat" id="qCat">IQ</span>
+          <span class="q-count">Question <b id="qNum">1</b> / <span id="qTotal">10</span></span>
+        </div>
+        <h2 class="q-text" id="qText">Loading…</h2>
+        <div class="q-opts" id="qOpts"></div>
+      </div>
+
+      <div class="q-foot">
+        <button class="btn btn-ghost" id="prevBtn">← Previous</button>
+        <button class="btn btn-primary" id="nextBtn">Next →</button>
+      </div>
+    </section>
+
+    <!-- palette -->
+    <aside class="palette" id="palette">
+      <div class="pal-card">
+        <div class="pal-head">
+          <h3>Question Palette</h3>
+          <button class="pal-close" id="palClose" aria-label="Close">✕</button>
+        </div>
+        <div class="pal-grid" id="palGrid"></div>
+        <ul class="pal-legend">
+          <li><span class="lg sw-answered"></span> Answered</li>
+          <li><span class="lg sw-current"></span> Current</li>
+          <li><span class="lg sw-empty"></span> Not visited</li>
+        </ul>
+        <div class="pal-counts" id="palCounts"></div>
+        <button class="btn btn-primary btn-block" id="submitBtn">Submit Test</button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- result overlay -->
+  <div class="result" id="result" hidden>
+    <div class="res-card">
+      <div class="res-ring" id="resRing"><div class="res-pct"><b id="resPct">0%</b><small>Score</small></div></div>
+      <h2 class="res-title" id="resTitle">Nicely done! 🎉</h2>
+      <p class="res-sub" id="resSub">You scored 0 out of 10.</p>
+      <div class="res-breakdown" id="resBreak"></div>
+      <div class="res-actions">
+        <a class="btn btn-primary btn-lg" href="dashboard.html">Back to Dashboard →</a>
+        <button class="btn btn-ghost btn-lg" id="reviewBtn">Review answers</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/exam.js"></script>
+</body>
+</html>

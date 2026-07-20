@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Register — India Mind League</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Register for the India Mind League Digital Qualifier — it takes under a minute." />
+  <link rel="icon" type="image/png" href="images/Iml-logo-fav.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="css/register.css" />
+  <style>
+    /* Make the native <select> match the existing input styling in this form */
+    .field select {
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a3a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 16px;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    .field select:invalid {
+      color: #8a8aa0; /* match placeholder color until a real value is chosen */
+    }
+    .field select option {
+      background: #141425;
+      color: #fff;
+    }
+
+    /* ---- Success popup ---- */
+    .form-success {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(6, 6, 16, 0.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .form-success.open {
+      display: flex;
+      animation: fsFadeIn 0.2s ease-out;
+    }
+    .form-success .fs-card {
+      width: 100%;
+      max-width: 420px;
+      background: #141425;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 36px 32px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      animation: fsPopIn 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+    }
+    .form-success .check {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(52, 211, 153, 0.12);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+    }
+    .form-success h3 {
+      margin: 0 0 8px;
+      font-size: 1.4rem;
+    }
+    .form-success p {
+      margin: 0 0 4px;
+      color: #b7b7c9;
+    }
+    .form-success .fs-redirect {
+      font-size: 0.85rem;
+      color: #8a8aa0;
+      margin: 0;
+    }
+    @keyframes fsFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fsPopIn {
+      from { opacity: 0; transform: scale(0.92) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-aurora"></div>
+  <div class="bg-grid"></div>
+
+  <a href="index.html" class="auth-back">← Back to site</a>
+
+  <main class="auth auth-wide">
+    <div class="auth-card">
+
+      <!-- LEFT · infographic -->
+      <aside class="auth-aside">
+        <div class="aa-sprites" aria-hidden="true">
+          <img class="aspr a1" src="images/sprites/globe.png" alt="" />
+          <img class="aspr a2" src="images/sprites/book.png" alt="" />
+          <img class="aspr a3" src="images/sprites/pointed%20arrow.png" alt="" />
+          <img class="aspr a4" src="images/sprites/triangle-set-sqare.png" alt="" />
+          <img class="aspr a5" src="images/sprites/dots.png" alt="" />
+        </div>
+
+        <h2 class="aa-title">Challenge your thinking. <span class="gradient">Discover your strengths.</span></h2>
+        <p class="aa-sub">Every student has the potential to lead, innovate and create positive change. The journey begins with a single step — unlock your leadership potential.</p>
+
+        <ul class="aa-feats">
+          <li><span class="aa-ic c-iq">🧠</span><div><b>Practice quizzes + Digital Qualifier</b><small>Full access from the moment you register</small></div></li>
+          <li><span class="aa-ic c-eq">📊</span><div><b>Performance insights</b><small>See where you shine and where to grow</small></div></li>
+          <li><span class="aa-ic c-val">🏆</span><div><b>Participation certificate</b><small>Plus eligibility for the next stages</small></div></li>
+        </ul>
+
+        <div class="aa-stats">
+          <div><b>10k+</b><small>Students</small></div>
+          <div><b>1000+</b><small>Schools</small></div>
+          <div><b>Free</b><small>To enter</small></div>
+        </div>
+      </aside>
+
+      <!-- RIGHT · form -->
+      <section class="auth-form">
+        <img class="af-logo" src="images/new-logo-cut.png" alt="India Mind League" />
+        <h1 class="af-title">Register for the Qualifier</h1>
+        <p class="af-lead">Fill in the details below to enter the championship.</p>
+
+        <form id="regForm" novalidate>
+          <div class="reg-row">
+            <div class="field"><label>Student Name <span class="req">*</span></label><input name="name" autocomplete="name" placeholder="Full name" required /></div>
+            <div class="field">
+              <label>Class / Grade <span class="req">*</span></label>
+              <select name="grade" id="grade" required>
+                <option value="" disabled selected>Select class</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field"><label>School Name <span class="opt">(optional)</span></label><input name="school" placeholder="School name" /></div>
+
+          <div class="reg-row">
+            <div class="field"><label>Parent Name</label><input name="parentName" autocomplete="name" placeholder="Parent / Guardian" /></div>
+            <div class="field">
+              <label>Mobile Number <span class="req">*</span></label>
+              <input 
+                name="phone" 
+                id="phone" 
+                type="tel"
+                inputmode="numeric" 
+                autocomplete="tel" 
+                placeholder="10-digit mobile" 
+                maxlength="10"
+                pattern="[0-9]{10}"
+                required 
+                />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your email address" required />
+          </div>
+
+          <div class="form-msg" id="formMsg"></div>
+
+          <button type="submit" class="btn btn-gold-solid btn-block btn-lg">Complete Registration</button>
+
+          <p class="hint reg-terms">By registering you agree to the championship terms &amp; data policy.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="fs-card">
+            <div class="check"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <h3>You're registered! 🎉</h3>
+            <p id="successName">Welcome to the India Mind League.</p>
+            <p class="fs-redirect">Redirecting you to login…</p>
+          </div>
+        </div>
+
+        <p class="af-alt">Already registered? <a href="login.html">Login here</a></p>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/register.js"></script>
+</body>
+</html>

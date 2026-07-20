@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Dashboard — India Mind League</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="images/Iml-logo-fav.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="dash">
+  <div class="bg-aurora"></div>
+  <div class="bg-grid"></div>
+
+  <!-- HEADER (main site header + student user menu) -->
+  <header class="nav show" id="nav">
+    <div class="container">
+      <a href="index.html" class="brand"><img class="nav-logo" src="images/new-logo-cut.png" alt="India Mind League" /></a>
+
+      <div class="user-menu" id="userMenu">
+        <button class="user-btn" id="userBtn" aria-haspopup="true" aria-expanded="false">
+          <img class="user-av" id="userAv" src="" alt="Your avatar" />
+          <span class="user-name" id="userName">Student</span>
+          <svg class="user-caret" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="user-drop" id="userDrop" role="menu">
+          <div class="ud-head">
+            <img class="ud-av" id="udAv" src="" alt="" />
+            <div><b id="udName">Student</b><small id="udContact">—</small></div>
+          </div>
+          <a href="dashboard.html" role="menuitem"><span class="ud-ic">🏠</span> Dashboard</a>
+          <a href="#" role="menuitem"><span class="ud-ic">👤</span> My Profile</a>
+          <a href="#" role="menuitem"><span class="ud-ic">⚙️</span> Settings</a>
+          <a href="index.html#leaderboard" role="menuitem"><span class="ud-ic">🏆</span> Leaderboard</a>
+          <button id="logoutBtn" role="menuitem"><span class="ud-ic">↩️</span> Log out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dash-main">
+    <!-- welcome -->
+    <section class="welcome">
+      <div class="wel-copy">
+        <span class="wel-eyebrow">● Student Dashboard</span>
+        <h1 class="wel-title">Hi, <span class="gradient" id="greetName">Champion</span> 👋</h1>
+        <p class="wel-sub">You're on Stage 1 — the Digital Qualifier. Keep the momentum going!</p>
+        <div class="wel-cta">
+          <a class="btn btn-primary btn-lg locked" id="startBtn" href="exam.html">Continue Qualifier →</a>
+          <a class="btn btn-ghost btn-lg" href="index.html#how">How it works</a>
+        </div>
+      </div>
+      <div class="wel-side">
+        <div class="wel-badge"><span class="wb-emoji">🧠</span></div>
+        <div class="exam-clock" id="examClock">
+          <span class="ec-label" id="ecLabel">⏱ Your Qualifier opens in</span>
+          <div class="ec-digits" id="ecDigits">
+            <div class="ec-unit"><b id="ecH">00</b><small>hrs</small></div><span class="ec-sep">:</span>
+            <div class="ec-unit"><b id="ecM">00</b><small>min</small></div><span class="ec-sep">:</span>
+            <div class="ec-unit"><b id="ecS">03</b><small>sec</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- stat tiles -->
+    <section class="dstats">
+      <div class="dstat"><span class="ds-ic c-iq">🏅</span><div><b>#128</b><small>Your rank</small></div></div>
+      <div class="dstat"><span class="ds-ic c-eq">⚡</span><div><b>1,840</b><small>Points</small></div></div>
+      <div class="dstat"><span class="ds-ic c-val">🔥</span><div><b>5 days</b><small>Streak</small></div></div>
+      <div class="dstat"><span class="ds-ic c-amber">🎖️</span><div><b>3</b><small>Badges</small></div></div>
+    </section>
+
+    <!-- main grid -->
+    <section class="dgrid">
+      <!-- progress -->
+      <div class="dcard dcard-wide">
+        <div class="dc-head"><h3>Qualifier progress</h3><span class="dc-tag">62% complete</span></div>
+        <div class="prog-track"><span class="prog-fill" style="width:62%"></span></div>
+        <div class="prog-steps">
+          <div class="ps done"><span>🧠</span>IQ<small>Done</small></div>
+          <div class="ps done"><span>❤️</span>EQ<small>Done</small></div>
+          <div class="ps active"><span>🧭</span>Values<small>In progress</small></div>
+          <div class="ps"><span>🏁</span>Result<small>Locked</small></div>
+        </div>
+      </div>
+
+      <!-- next up -->
+      <div class="dcard">
+        <div class="dc-head"><h3>Up next</h3></div>
+        <ul class="dlist">
+          <li><span class="dl-ic c-iq">🧭</span><div><b>Values round</b><small>~12 questions left</small></div><span class="dl-go">→</span></li>
+          <li><span class="dl-ic c-eq">📅</span><div><b>School round</b><small>Opens 15 Jul</small></div><span class="dl-go">→</span></li>
+          <li><span class="dl-ic c-val">🎓</span><div><b>Mentorship</b><small>Unlock at Stage 2</small></div><span class="dl-go">→</span></li>
+        </ul>
+      </div>
+
+      <!-- mini leaderboard -->
+      <div class="dcard">
+        <div class="dc-head"><h3>Your region</h3><span class="dc-live"><i></i>Live</span></div>
+        <ol class="dlb">
+          <li><span class="lb-rk">1</span> Aditya Verma <b>2430</b></li>
+          <li><span class="lb-rk">2</span> Saanvi Kapoor <b>1847</b></li>
+          <li class="me"><span class="lb-rk">128</span> <span id="meName">You</span> <b>1840</b></li>
+        </ol>
+      </div>
+
+      <!-- certificates -->
+      <div class="dcard dcard-wide cta-card">
+        <div>
+          <h3>Earn your first certificate 🏆</h3>
+          <p>Finish the Values round to unlock your <b>Qualifier Certificate</b> and a shareable badge.</p>
+        </div>
+        <a class="btn btn-primary btn-lg" href="exam.html">Finish Values round →</a>
+      </div>
+    </section>
+
+    <footer class="dash-foot">
+      <span>© <span id="year"></span> India Mind League</span>
+      <span class="df-org">An initiative by <b>Amity Group of Schools</b></span>
+    </footer>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>India Mind League — Champions of the Mind</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="India Mind League — a flagship intellectual championship by the Amity Group of Schools, testing IQ, EQ and core values. Register for the Digital Qualifier." />
+  <link rel="icon" type="image/png" href="images/Iml-logo-fav.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/leaderboard.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/onboarding.css" />
+  <link rel="stylesheet" href="css/splash.css" />
+  <noscript><style>#splash{display:none!important}</style></noscript>
+  <script>
+    // Splash + onboarding run only ONCE per browser session.
+    var imlSeen = false;
+    try { imlSeen = !!sessionStorage.getItem('imlIntroSeen'); } catch (e) {}
+    if (imlSeen) {
+      document.documentElement.classList.add('iml-seen'); // hides #splash instantly (css)
+    } else if (window.matchMedia('(max-width: 768px)').matches) {
+      // Onboarding intro is a MOBILE-only experience; hero carousel is DESKTOP-only.
+      document.documentElement.classList.add('intro');
+    }
+  </script>
+</head>
+<body>
+  <!-- LOGO REVEAL SPLASH -->
+  <div id="splash">
+    <span class="splash-burst"></span>
+    <!-- Transition 1 · Amity presents -->
+    <div class="splash-amity">
+      <div class="amity-card"><img class="amity-logo" src="images/amity-logo.png" alt="Amity Group of Schools" /></div>
+      <span class="amity-presents">Presents</span>
+    </div>
+    <!-- Transition 2 · IML logo -->
+    <img class="splash-logo" src="images/logo-trim.png" alt="India Mind League" />
+    <!-- Transition 3 · Tagline (full-screen video seen through the letters) -->
+    <div class="splash-words splash-vtext" role="img" aria-label="India Mind League">
+      <svg class="vt" width="100%" height="100%">
+        <defs>
+          <mask id="vt-mask">
+            <rect width="100%" height="100%" fill="#000"/>
+            <text class="vt-mtext" x="50%" y="50%" text-anchor="middle" dominant-baseline="central">
+              <tspan class="vt-l r1" x="50%" dy="-1.12em">INDIA</tspan>
+              <tspan class="vt-l r2" x="50%" dy="1.12em">MIND</tspan>
+              <tspan class="vt-l r3" x="50%" dy="1.12em">LEAGUE</tspan>
+            </text>
+          </mask>
+        </defs>
+        <text class="vt-btext" x="50%" y="50%" text-anchor="middle" dominant-baseline="central">
+          <tspan class="vt-l r1" x="50%" dy="-1.12em">INDIA</tspan>
+          <tspan class="vt-l r2" x="50%" dy="1.12em">MIND</tspan>
+          <tspan class="vt-l r3" x="50%" dy="1.12em">LEAGUE</tspan>
+        </text>
+        <foreignObject x="0" y="0" width="100%" height="100%" mask="url(#vt-mask)">
+          <video xmlns="http://www.w3.org/1999/xhtml" class="vt-video" autoplay muted loop playsinline preload="auto">
+            <source src="videos/school_campus.mp4" type="video/mp4">
+          </video>
+        </foreignObject>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ONBOARDING INTRO -->
+  <div id="onboarding" role="dialog" aria-label="Welcome">
+    <div class="ob-bg"></div>
+    <span class="ob-blob b1"></span><span class="ob-blob b2"></span><span class="ob-blob b3"></span>
+    <div class="ob-sprites" aria-hidden="true">
+      <img class="spr s-globe" src="images/sprites/globe.png" alt="" />
+      <img class="spr s-book" src="images/sprites/book.png" alt="" />
+      <img class="spr s-arrow" src="images/sprites/pointed%20arrow.png" alt="" />
+      <img class="spr s-tri" src="images/sprites/triangle-set-sqare.png" alt="" />
+      <img class="spr s-dots" src="images/sprites/dots.png" alt="" />
+      <img class="spr s-circle" src="images/sprites/circle.png" alt="" />
+    </div>
+    <div class="ob-progress"><span id="obBar"></span></div>
+    <button class="ob-skip" id="obSkip">Skip intro →</button>
+
+    <div class="ob-slides">
+      <!-- Slide 1 -->
+      <section class="ob-slide active" data-slide="0">
+        <img class="ob-logo" src="images/logo-trim.png" alt="India Mind League" />
+        <div class="ob-kicker">Amity Group of Schools</div>
+        <h1 class="ob-title">Champions of the <span class="gradient">Mind</span></h1>
+        <p class="ob-sub">Where India thinks forward — testing IQ, EQ &amp; core values.</p>
+      </section>
+
+      <!-- Slide 2 -->
+      <section class="ob-slide" data-slide="1">
+        <h1 class="ob-title">Three <span class="gradient">Superpowers</span></h1>
+        <p class="ob-sub">Every champion masters all three.</p>
+        <div class="ob-stack">
+          <div class="ob-row"><span class="rico c-iq">🧠</span><div class="rtxt"><b>IQ</b><small>Smart thinking</small></div></div>
+          <div class="ob-row"><span class="rico c-eq">❤️</span><div class="rtxt"><b>EQ</b><small>Big heart</small></div></div>
+          <div class="ob-row"><span class="rico c-val">🧭</span><div class="rtxt"><b>Values</b><small>Strong character</small></div></div>
+          <div class="ob-eq">= Complete Intelligence</div>
+        </div>
+      </section>
+
+      <!-- Slide 3 -->
+      <section class="ob-slide" data-slide="2">
+        <div class="ob-confetti"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="ob-badge gold">🏆</div>
+        <h1 class="ob-title">Ready to <span class="gradient">Play?</span></h1>
+        <p class="ob-sub">Your journey to the national stage starts now.</p>
+        <button class="btn btn-primary btn-lg ob-go" id="obGo">Let's Go →</button>
+      </section>
+    </div>
+
+    <div class="ob-dots">
+      <button class="ob-dot on" data-go="0" aria-label="Slide 1"></button>
+      <button class="ob-dot" data-go="1" aria-label="Slide 2"></button>
+      <button class="ob-dot" data-go="2" aria-label="Slide 3"></button>
+    </div>
+    <button class="ob-next" id="obNext" aria-label="Next">→</button>
+  </div>
+
+  <div class="bg-aurora"></div>
+  <div class="bg-grid"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="container">
+      <a href="#top" class="brand"><img class="nav-logo nav-logo-brand" src="images/new-logo-cut.png" alt="India Mind League" /></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#pillars">The League</a>
+        <a href="#how">Stages</a>
+        <a href="#rewards">Rewards</a>
+        <a href="#contact">Contact</a>
+        <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+        <a href="register.html" class="btn btn-gold-solid btn-sm">Register Now</a>
+
+        <div class="nav-extra">
+          <div class="nav-contact">
+            <span class="nav-extra-label">Get in touch</span>
+            <a href="mailto:hello@indiamindleague.in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>hello@indiamindleague.in</a>
+            <a href="tel:+911204000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>+91 120 4000 000</a>
+            <span class="nav-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Amity Group of Schools · Delhi NCR</span>
+          </div>
+          <div class="nav-social">
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zM9.8 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></a>
+            <a href="https://x.com" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 3h3.3l-7.2 8.2L23 21h-6.6l-5.2-6.8L5.3 21H2l7.7-8.8L1.5 3h6.8l4.7 6.2L18.2 3zm-1.2 16h1.8L7.1 4.9H5.2L17 19z"/></svg></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO SLIDER -->
+    <section class="hero-slider" id="heroSlider" aria-roledescription="carousel" aria-label="India Mind League">
+      <div class="hs-progress"><span></span></div>
+
+      <div class="hs-slides">
+        <!-- Single hero banner -->
+        <article class="hs-slide active" style="--tint:37,99,235;">
+          <div class="hs-row">
+            <div class="hs-info up">
+              <div class="hero-banner"><img src="https://i.postimg.cc/6qfM3Rf6/banner-groups-01.png" alt="India Mind League champions" /></div>
+            </div>
+            <div class="hs-copy hero-copy">
+              <p class="hero-kicker up d1">India's Flagship</p>
+              <h1 class="hero-h1 up d2"><span class="gold">Intellectual</span> Championship</h1>
+              <span class="hero-rule up d2"></span>
+              <p class="hero-tag up d3">Intention &nbsp;·&nbsp; Focus &nbsp;·&nbsp; Wisdom</p>
+              <p class="hero-sub up d3">4 Stages. 1 Ultimate Goal.<br><span class="gold">Limitless Possibilities.</span></p>
+              <div class="hs-cta up d4">
+                <a class="btn btn-gold-solid btn-lg" href="register.html">Register Now →</a>
+                <a class="btn btn-ghost btn-lg" href="#how">Know More →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="hs-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 130" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="iml-wave-grad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2563eb"/>
+              <stop offset="0.5" stop-color="#7c3aed"/>
+              <stop offset="1" stop-color="#ec4899"/>
+            </linearGradient>
+          </defs>
+          <path class="w-l1" d="M0,44 C360,88 880,18 1440,48 L1440,130 L0,130 Z"/>
+          <path class="w-l2" d="M0,62 C420,20 900,80 1440,34 L1440,130 L0,130 Z"/>
+          <path class="w-l3" d="M0,54 C520,98 1000,32 1440,60 L1440,130 L0,130 Z"/>
+          <path class="w-fill" d="M0,74 C440,118 940,26 1440,62 L1440,130 L0,130 Z"/>
+          <path class="w-edge" d="M0,74 C440,118 940,26 1440,62"/>
+        </svg>
+      </div>
+
+      <a class="hs-scroll" href="#how">Scroll ↓</a>
+    </section>
+
+    <!-- STATIC HERO (mobile only) -->
+    <section class="mobile-hero">
+      <span class="mh-eyebrow">India's Flagship</span>
+      <h1 class="mh-title"><span class="gold">Intellectual</span> Championship</h1>
+      <span class="hero-rule mh-rule"></span>
+      <p class="mh-tag">Intention · Focus · Wisdom</p>
+      <p class="mh-sub">4 Stages. 1 Ultimate Goal. <span class="gold">Limitless Possibilities.</span></p>
+      <div class="mh-cta">
+        <a class="btn btn-gold-solid" href="register.html">Register Now →</a>
+        <a class="btn btn-ghost" href="#how">Know More →</a>
+      </div>
+      <div class="mh-banner"><img src="https://i.postimg.cc/6qfM3Rf6/banner-groups-01.png" alt="India Mind League champions" /></div>
+    </section>
+
+    <!-- ABOUT / MANIFESTO -->
+    <section class="section" id="about">
+      <div class="container about-wrap reveal">
+        <div class="about-left">
+          <span class="eyebrow">Where India Thinks Forward</span>
+          <h2 class="about-h">The future will not belong to those who <span class="gold">know more</span>. It will belong to those who <span class="gold">think better</span>.</h2>
+          <span class="about-rule"></span>
+        </div>
+        <div class="about-right">
+          <p class="about-p">We are living in an age where information is available instantly. Artificial Intelligence can answer questions, solve equations and process vast amounts of data within seconds. Yet the world continues to face challenges that cannot be solved by information alone. The future will belong to those who can think critically, make wise decisions, lead with empathy and act with integrity.</p>
+          <p class="about-p"><b>India Mind League (IML)</b> is India's first <b>Holistic Intelligence Championship</b> — designed to discover and nurture young minds who possess not only knowledge but also emotional intelligence, leadership ability, ethical judgment and real-world problem-solving skills. It is more than a competition; it is a national movement to identify the thinkers, innovators and future leaders who will shape tomorrow's India.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MESSAGE FROM THE VISIONARY -->
+    <section class="section" id="visionary">
+      <div class="container vis-grid">
+        <div class="vis-photo reveal">
+          <img src="images/Dr-MS-Chauhan.jpg" alt="Dr. (Mrs.) Amita Chauhan" />
+        </div>
+        <div class="vis-body reveal">
+          <span class="eyebrow">Message from the Visionary</span>
+          <h2>Dr. (Mrs.) Amita Chauhan</h2>
+          <p class="vis-role">Chairperson, Amity Group of Schools</p>
+          <p class="vis-quote">"In an AI-driven world, education must nurture both intellect and values — minds that think, feel and lead."</p>
+          <p class="vis-intro">India Mind League is envisioned as a new-age championship for today's AI-driven world — developing <b>Emotional Intelligence (EQ)</b>, <b>Spiritual Intelligence (SQ)</b> and core values in students.</p>
+          <button type="button" class="btn btn-primary btn-lg" id="visionaryBtn" style="margin-top:0.4rem;">Read Full Message →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- A LEAGUE THAT BUILDS -->
+    <section class="section" id="pillars">
+      <div class="container">
+        <div class="hb-title"><span>A League That Builds</span></div>
+        <div class="pillars">
+          <div class="pillar reveal">
+            <div class="pl-ring c-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg></div>
+            <div class="pl-txt"><h3>IQ</h3><span class="pl-sub">Knowledge</span><p>Test Your Knowledge. Prove Your Potential.</p></div>
+          </div>
+          <div class="pillar reveal">
+            <div class="pl-ring c-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg></div>
+            <div class="pl-txt"><h3>EQ</h3><span class="pl-sub">Emotional Intelligence</span><p>Understand. Empathize. Lead with Heart.</p></div>
+          </div>
+          <div class="pillar reveal">
+            <div class="pl-ring c-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="pl-txt"><h3>LQ</h3><span class="pl-sub">Leadership</span><p>Collaborate. Communicate. Create Impact.</p></div>
+          </div>
+          <div class="pillar reveal">
+            <div class="pl-ring c-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+            <div class="pl-txt"><h3>Life Skills</h3><span class="pl-sub">&amp; More</span><p>Think Critically. Solve Real-World Challenges.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 STAGE SELECTION PROCESS -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="hb-title"><span>4 Stage Selection Process</span></div>
+        <div class="stages">
+          <div class="stage reveal">
+            <div class="st-ring c-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+            <span class="st-label st-1">Stage 1</span>
+            <h3>Online Challenge</h3>
+            <p>Online assessment with a digital participation certificate. Top 200 shortlisted.</p>
+          </div>
+          <div class="st-arrow a1"><svg viewBox="0 0 46 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h38m-9-8 9 8-9 8"/></svg></div>
+          <div class="stage reveal">
+            <div class="st-ring c-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <span class="st-label st-2">Stage 2</span>
+            <h3>Zoom Showdown</h3>
+            <p>Live quiz, critical thinking &amp; leadership challenges. Top 60 selected.</p>
+          </div>
+          <div class="st-arrow a2"><svg viewBox="0 0 46 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h38m-9-8 9 8-9 8"/></svg></div>
+          <div class="stage reveal">
+            <div class="st-ring c-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+            <span class="st-label st-3">Stage 3</span>
+            <h3>Amity Leadership Bootcamp</h3>
+            <p>Certified expert training in IQ, EQ, SQ &amp; LQ, AI &amp; future skills, and public speaking.</p>
+          </div>
+          <div class="st-arrow a3"><svg viewBox="0 0 46 22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h38m-9-8 9 8-9 8"/></svg></div>
+          <div class="stage reveal">
+            <div class="st-ring c-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/></svg></div>
+            <span class="st-label st-4">Stage 4</span>
+            <h3>Amity YouTube Grand Show</h3>
+            <p>4 groups of 15 — top 3 from each qualify. 12 Grand Finalists, one champion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats-bar">
+      <div class="container">
+        <div class="sb-grid">
+          <div class="sb-item"><span class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div class="sb-tx"><b>Team of 3</b><small>Students</small></div></div>
+          <div class="sb-item"><span class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 18 0M5 21V9l7-5 7 5v12"/><path d="M9 21v-5h6v5M9 12h.01M15 12h.01"/></svg></span><div class="sb-tx"><b>1000+</b><small>Schools</small></div></div>
+          <div class="sb-item"><span class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div class="sb-tx"><b>1 Lakh+</b><small>Participants</small></div></div>
+          <div class="sb-item"><span class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></span><div class="sb-tx"><b>1</b><small>Champion</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO / WHY / WATCH -->
+    <section class="section" id="rewards">
+      <div class="container">
+        <div class="i3-grid">
+          <div class="i3-card reveal">
+            <h3 class="i3-h gold">Who Can Participate?</h3>
+            <p class="i3-p">Curious, ambitious and creative students ready to challenge themselves:</p>
+            <ul class="i3-list" style="margin-top:0;">
+              <li><i>✓</i> Students of <b>&nbsp;Classes 9 to 12</b></li>
+              <li><i>✓</i> Recognized schools across Delhi NCR</li>
+              <li><i>✓</i> Individual or school-nominated</li>
+              <li><i>✓</i> Young leaders, innovators &amp; thinkers</li>
+            </ul>
+            <a class="btn-gold" href="register.html">Eligibility Details →</a>
+            <img class="i3-photo" src="images/cta-5-1.png" alt="Students" loading="lazy" />
+          </div>
+          <div class="i3-card reveal">
+            <h3 class="i3-h gold">Why Join IML?</h3>
+            <ul class="i3-list">
+              <li><i>✓</i> Enhance Knowledge &amp; Skills</li>
+              <li><i>✓</i> National Level Exposure</li>
+              <li><i>✓</i> Exciting Rewards &amp; Recognition</li>
+              <li><i>✓</i> Build Lifelong Connections</li>
+            </ul>
+            <a class="btn-gold" href="#pillars">Explore More →</a>
+          </div>
+          <div class="i3-card i3-watch reveal">
+            <video class="i3-vid" autoplay muted loop playsinline preload="none"><source src="videos/school_campus.mp4" type="video/mp4"></video>
+            <span class="i3-play"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            <span class="i3-cap">Watch IML in Action</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="section cta-banner-sec">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div class="cta-text">
+            <p class="cta-small">Think. Collaborate. Rise. Shine.</p>
+            <h2 class="cta-big">The Future Leaders <span class="gold">Start Here!</span></h2>
+          </div>
+          <div class="cta-right">
+            <a class="btn-gold-lg" href="register.html">Register Now →</a>
+            <span class="cta-note">Are you ready to rule your mind?</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container foot-grid">
+      <div class="foot-brand">
+        <img class="foot-logo" src="images/new-logo-cut.png" alt="India Mind League" />
+        <p>India Mind League is a pioneering initiative to discover, nurture and empower young minds to become future leaders and changemakers.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <div class="foot-links">
+          <a href="#top">Home</a><a href="#visionary">About</a>
+          <a href="#pillars">The League</a><a href="#how">Stages</a>
+          <a href="#rewards">Rewards</a><a href="#rewards">Gallery</a>
+          <a href="#contact">FAQs</a><a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Follow Us</h4>
+        <div class="foot-social">
+          <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="fs yt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zM9.8 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="fs ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="fs fb"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="fs li"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Contact Us</h4>
+        <a class="foot-contact" href="mailto:iml@amity.edu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>iml@amity.edu</a>
+        <a class="foot-contact" href="tel:+911234567890"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>+91 12345 67890</a>
+        <span class="foot-org">An initiative by <b>Amity Group of Schools</b></span>
+      </div>
+    </div>
+    <div class="container foot-bar">
+      <span>© <span id="year"></span> India Mind League. All Rights Reserved.</span>
+      <span class="foot-legal"><a href="#">Privacy Policy</a> · <a href="#">Terms &amp; Conditions</a></span>
+    </div>
+  </footer>
+
+  <!-- VISIONARY MESSAGE MODAL -->
+  <div class="modal" id="visionaryModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-label="Message from the Visionary">
+      <button class="modal-close" data-close aria-label="Close">&times;</button>
+      <div class="vm-head">
+        <div class="vm-photo">
+          <div class="hs-frame"><div class="inner">
+            <img src="images/Dr-MS-Chauhan.jpg" alt="Dr. (Mrs.) Amita Chauhan" />
+          </div></div>
+        </div>
+        <div>
+          <span class="eyebrow">Meet the Visionary</span>
+          <h2 style="margin:.2rem 0;">Dr. (Mrs.) Amita Chauhan</h2>
+          <p class="vm-role">Chairperson, Amity Group of Schools</p>
+        </div>
+      </div>
+      <div class="vm-text">
+        <p>Under the visionary guidance of <b>Dr. (Mrs.) Amita Chauhan</b>, Chairperson, Amity Group of Schools.</p>
+        <p><b>India Mind League</b> is envisioned as a new-age championship aligned with today's AI-driven world.</p>
+        <p>While AI can process knowledge, it cannot feel or make value-based decisions.</p>
+        <p>With the belief that education must nurture both intellect and values, this initiative focuses on developing <b>Emotional Intelligence (EQ)</b> and <b>Spiritual Intelligence (SQ)</b> in students.</p>
+      </div>
+      <div class="vm-cta"><a class="btn btn-primary btn-lg" href="register.html" data-close>Be part of it →</a></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/splash.js"></script>
+  <script src="js/onboarding.js"></script>
+  <script src="js/hero.js"></script>
+  <script src="js/leaderboard.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
