@@ -1,0 +1,23 @@
+/* =====================================================================
+   India Mind League — dedicated registration page (mobile-first)
+   Builds on css/login.css (shared .auth 2-column layout)
+   ===================================================================== */
+.auth-wide { max-width: none; }
+.auth-wide .auth-form { padding-inline: max(2.2rem, calc((100% - 540px) / 2)); } /* wider column: form has 2-col rows */
+
+.reg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.reg-row .field { margin-bottom: 1rem; }
+.reg-terms { text-align: center; margin-top: 0.7rem; }
+
+/* success state */
+.form-success { display: none; text-align: center; padding: 0.5rem 0 0.5rem; }
+.form-success.show { display: block; }
+.form-success .check { width: 66px; height: 66px; margin: 0 auto 1.1rem; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(52, 211, 153, 0.14); border: 1px solid rgba(52, 211, 153, 0.5); box-shadow: 0 0 34px -6px rgba(52, 211, 153, 0.5); }
+.form-success h3 { font-family: var(--display); font-weight: 800; font-size: 1.5rem; }
+.form-success p { color: var(--muted); margin-top: 0.4rem; line-height: 1.5; }
+.reg-success-cta { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.5rem; }
+.reg-success-cta .btn { width: 100%; }
+
+@media (max-width: 860px) { .auth-wide .auth-form { padding-inline: 1.3rem; } }
+@media (max-width: 520px) { .reg-row { grid-template-columns: 1fr; gap: 0; } }

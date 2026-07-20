@@ -1,0 +1,169 @@
+/* =====================================================================
+   India Mind League — playful onboarding intro (3 slides)
+   Shown only when <html class="intro"> (added by an inline head script,
+   removed by onboarding.js when finished). Degrades to nothing if JS off.
+   ===================================================================== */
+
+#onboarding { display: none; }
+html.intro #onboarding {
+  display: flex; position: fixed; inset: 0; z-index: 1000;
+  align-items: center; justify-content: center; text-align: center;
+  overflow: hidden; transition: opacity 0.6s ease, transform 0.6s ease;
+}
+html.intro body { overflow: hidden; }
+#onboarding.out { opacity: 0; transform: scale(1.06); pointer-events: none; }
+
+/* Background */
+.ob-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(50rem 40rem at 78% 12%, rgba(139, 92, 246, 0.4), transparent 60%),
+    radial-gradient(44rem 36rem at 12% 86%, rgba(59, 130, 246, 0.28), transparent 58%),
+    radial-gradient(40rem 36rem at 50% 50%, rgba(236, 72, 153, 0.18), transparent 62%),
+    #060514;
+  animation: obBg 14s ease-in-out infinite alternate;
+}
+@keyframes obBg { to { filter: hue-rotate(28deg); } }
+.ob-blob {
+  position: absolute; border-radius: 50%; filter: blur(30px); opacity: 0.5; z-index: 0;
+  animation: obFloat 9s ease-in-out infinite;
+}
+.ob-blob.b1 { width: 16rem; height: 16rem; top: 12%; left: 8%; background: rgba(167, 139, 250, 0.5); }
+.ob-blob.b2 { width: 13rem; height: 13rem; bottom: 14%; right: 10%; background: rgba(59, 130, 246, 0.45); animation-delay: 1.5s; }
+.ob-blob.b3 { width: 9rem; height: 9rem; top: 60%; left: 22%; background: rgba(236, 72, 153, 0.4); animation-delay: 3s; }
+@keyframes obFloat { 0%, 100% { transform: translateY(0) translateX(0); } 50% { transform: translateY(-26px) translateX(14px); } }
+
+/* scattered education doodles (sprites) */
+.ob-sprites { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.spr { position: absolute; height: auto; opacity: 0.55; animation: sprFloat 9s ease-in-out infinite;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35)); }
+.s-globe  { top: 12%; left: 7%;  width: 58px; animation-delay: 0s; }
+.s-book   { top: 16%; right: 9%; width: 50px; animation-delay: 1.2s; }
+.s-arrow  { bottom: 24%; left: 5%; width: 78px; opacity: 0.7; animation-delay: 2s; transform: rotate(8deg); }
+.s-tri    { bottom: 13%; right: 9%; width: 56px; animation-delay: 0.6s; }
+.s-dots   { top: 44%; right: 5%; width: 64px; opacity: 0.32; animation-delay: 1.8s; }
+.s-circle { top: 58%; left: 6%; width: 42px; opacity: 0.4; animation-delay: 2.6s; }
+@keyframes sprFloat { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-18px) rotate(6deg); } }
+
+/* Slides */
+.ob-slides { position: relative; z-index: 2; width: min(680px, 92vw); }
+.ob-slide {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.5rem; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.4s ease;
+}
+.ob-slide.active { position: relative; opacity: 1; visibility: visible; pointer-events: auto; }
+
+.ob-kicker { font-family: var(--display); font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; font-size: 0.82rem;
+  margin-bottom: 0.2rem;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.ob-logo { width: clamp(220px, 66vw, 360px); max-width: 90vw; height: auto; margin-bottom: 1.6rem;
+  filter: drop-shadow(0 0 48px rgba(124, 58, 237, 0.55)); animation: obBob 4s ease-in-out infinite; }
+.ob-title { font-family: var(--display); font-weight: 800; font-size: clamp(3.1rem, 13vw, 5.2rem); letter-spacing: -0.035em; line-height: 0.96;
+  text-shadow: 0 16px 44px rgba(0, 0, 0, 0.5); }
+.ob-sub { color: var(--muted); font-size: clamp(1.12rem, 4.2vw, 1.4rem); font-weight: 500; margin: 0.9rem auto 0; max-width: 24ch; line-height: 1.5; }
+
+/* spring entrance applied to children of the active slide */
+.ob-slide.active > * { animation: obPop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.ob-slide.active > *:nth-child(2) { animation-delay: 0.08s; }
+.ob-slide.active > *:nth-child(3) { animation-delay: 0.16s; }
+.ob-slide.active > *:nth-child(4) { animation-delay: 0.24s; }
+.ob-slide.active > *:nth-child(5) { animation-delay: 0.32s; }
+@keyframes obPop { from { opacity: 0; transform: translateY(26px) scale(0.86); } to { opacity: 1; transform: none; } }
+
+/* Slide 1 — brain */
+.ob-brain { position: relative; font-size: clamp(4.5rem, 14vw, 8rem); line-height: 1; filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.7)); animation: obBob 3.2s ease-in-out infinite !important; }
+.ob-brain::after {
+  content: ""; position: absolute; inset: -30% ; border-radius: 50%; z-index: -1;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.6), transparent 65%); filter: blur(18px);
+  animation: obPulse 2.4s ease-in-out infinite;
+}
+@keyframes obBob { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-14px) rotate(3deg); } }
+@keyframes obPulse { 0%, 100% { opacity: 0.5; transform: scale(0.92); } 50% { opacity: 1; transform: scale(1.08); } }
+
+/* sparkles */
+.ob-spark { position: absolute; font-size: 1.4rem; opacity: 0; animation: obSpark 2.6s ease-in-out infinite; }
+.ob-spark.s1 { top: 18%; left: 28%; animation-delay: 0.2s; }
+.ob-spark.s2 { top: 24%; right: 26%; animation-delay: 0.9s; }
+.ob-spark.s3 { bottom: 30%; left: 33%; animation-delay: 1.5s; }
+.ob-spark.s4 { bottom: 26%; right: 30%; animation-delay: 2.1s; }
+@keyframes obSpark { 0%, 100% { opacity: 0; transform: scale(0.4) rotate(0); } 50% { opacity: 1; transform: scale(1.1) rotate(25deg); } }
+
+/* Slide 2 — single "superpowers" infographic panel */
+.ob-stack {
+  width: min(400px, 90vw); margin: 2rem auto 0; padding: 1.5rem 1.4rem; border-radius: 26px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.035));
+  border: 1px solid var(--line-2); backdrop-filter: blur(12px); box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 1.15rem; text-align: left;
+}
+.ob-row { display: flex; align-items: center; gap: 1.05rem; }
+.ob-row .rico { width: 62px; height: 62px; flex: 0 0 auto; border-radius: 18px; display: grid; place-items: center; font-size: 2rem;
+  animation: obBob 3s ease-in-out infinite; }
+.rico.c-iq { background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.45); box-shadow: 0 0 28px -8px rgba(59, 130, 246, 0.75); }
+.rico.c-eq { background: rgba(236, 72, 153, 0.2); border: 1px solid rgba(236, 72, 153, 0.45); box-shadow: 0 0 28px -8px rgba(236, 72, 153, 0.75); animation-delay: 0.4s; }
+.rico.c-val { background: rgba(124, 58, 237, 0.2); border: 1px solid rgba(124, 58, 237, 0.45); box-shadow: 0 0 28px -8px rgba(124, 58, 237, 0.75); animation-delay: 0.8s; }
+.ob-row .rtxt b { display: block; font-family: var(--display); font-weight: 800; font-size: 1.55rem; line-height: 1.05;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.ob-row .rtxt small { color: var(--muted); font-size: 0.95rem; font-weight: 500; }
+.ob-eq { margin-top: 0.3rem; padding-top: 1rem; border-top: 1px solid var(--line-2);
+  font-family: var(--display); font-weight: 800; font-size: 1.1rem; letter-spacing: 0.01em; text-align: center;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* Slide 3 — trophy badge + go */
+.ob-badge { width: clamp(130px, 33vw, 172px); height: clamp(130px, 33vw, 172px); border-radius: 50%;
+  display: grid; place-items: center; font-size: clamp(3.5rem, 11vw, 5rem); margin: 0 auto 1rem;
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05)), linear-gradient(135deg, #fde68a, #f59e0b);
+  box-shadow: 0 0 100px -8px rgba(251, 191, 36, 0.8), inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  animation: obBob 3s ease-in-out infinite; }
+.ob-slide.active > .ob-confetti { animation: none; opacity: 1; }
+.ob-go { margin-top: 1.4rem !important; animation: obPop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both, obBreathe 2.2s ease-in-out 0.7s infinite !important; }
+@keyframes obBreathe { 0%, 100% { transform: scale(1); box-shadow: 0 12px 34px -10px rgba(139, 92, 246, 0.65); } 50% { transform: scale(1.05); box-shadow: 0 18px 46px -8px rgba(59, 130, 246, 0.7); } }
+
+/* Confetti */
+.ob-confetti { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.ob-confetti i {
+  position: absolute; top: -8%; width: 10px; height: 14px; border-radius: 2px; opacity: 0;
+  animation: obFall 3.2s linear infinite;
+}
+.ob-slide.active .ob-confetti i { opacity: 1; }
+.ob-confetti i:nth-child(1) { left: 8%; background: #a78bfa; animation-delay: 0s; }
+.ob-confetti i:nth-child(2) { left: 18%; background: #3b82f6; animation-delay: 0.4s; }
+.ob-confetti i:nth-child(3) { left: 28%; background: #ec4899; animation-delay: 0.8s; }
+.ob-confetti i:nth-child(4) { left: 38%; background: #fbbf24; animation-delay: 0.2s; }
+.ob-confetti i:nth-child(5) { left: 48%; background: #34d399; animation-delay: 1s; }
+.ob-confetti i:nth-child(6) { left: 58%; background: #a78bfa; animation-delay: 0.6s; }
+.ob-confetti i:nth-child(7) { left: 68%; background: #3b82f6; animation-delay: 0.3s; }
+.ob-confetti i:nth-child(8) { left: 78%; background: #ec4899; animation-delay: 0.9s; }
+.ob-confetti i:nth-child(9) { left: 88%; background: #fbbf24; animation-delay: 0.5s; }
+.ob-confetti i:nth-child(10) { left: 14%; background: #34d399; animation-delay: 1.3s; }
+.ob-confetti i:nth-child(11) { left: 64%; background: #a78bfa; animation-delay: 1.6s; }
+.ob-confetti i:nth-child(12) { left: 34%; background: #3b82f6; animation-delay: 1.1s; }
+@keyframes obFall { 0% { transform: translateY(0) rotate(0); opacity: 1; } 100% { transform: translateY(105vh) rotate(540deg); opacity: 0; } }
+
+/* Controls */
+.ob-skip {
+  position: absolute; top: 1.4rem; right: 1.4rem; z-index: 5;
+  background: rgba(255, 255, 255, 0.06); border: 1px solid var(--line-2); color: var(--muted);
+  padding: 0.5rem 1rem; border-radius: 999px; font-family: var(--display); font-weight: 600; font-size: 0.85rem; cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+.ob-skip:hover { color: #fff; background: rgba(255, 255, 255, 0.12); }
+
+.ob-progress { position: absolute; top: 0; left: 0; right: 0; height: 4px; z-index: 5; background: rgba(255, 255, 255, 0.08); }
+.ob-progress span { display: block; height: 100%; width: 0; background: var(--grad); }
+
+.ob-dots { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.6rem; z-index: 5; }
+.ob-dot { width: 9px; height: 9px; border-radius: 999px; border: 0; background: rgba(255, 255, 255, 0.22); cursor: pointer; transition: all 0.3s; padding: 0; }
+.ob-dot.on { background: var(--violet-2); width: 26px; }
+
+.ob-next {
+  position: absolute; bottom: 1.7rem; right: 1.6rem; z-index: 5;
+  width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line-2);
+  background: rgba(255, 255, 255, 0.06); color: #fff; font-size: 1.3rem; cursor: pointer;
+  display: grid; place-items: center; transition: background 0.2s, transform 0.2s;
+}
+.ob-next:hover { background: rgba(139, 92, 246, 0.3); transform: scale(1.08); }
+
+@media (max-width: 540px) {
+  .ob-card { width: 132px; }
+  .ob-next { display: none; }
+}

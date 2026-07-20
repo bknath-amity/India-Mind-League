@@ -1,0 +1,93 @@
+/* =====================================================================
+   India Mind League — logo-reveal splash → tagline word-build transition
+   Phase 1: logo reveals + glows, then exits.
+   Phase 2: "Where / India / Thinks / Forward" appear one word at a time.
+   ===================================================================== */
+#splash {
+  position: fixed; inset: 0; z-index: 3000; display: grid; place-items: center; place-content: center;
+  overflow: hidden; padding: 1rem;
+  background: radial-gradient(60rem 42rem at 50% 42%, #18143e 0%, #0a0820 55%, #050410 100%);
+  transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+#splash.hide { opacity: 0; visibility: hidden; }
+html.iml-seen #splash { display: none !important; } /* intro already seen this session */
+#splash > * { grid-area: 1 / 1; justify-self: center; align-self: center; } /* stack centred */
+
+/* ---- Phase 1: Amity presents ---- */
+.splash-amity {
+  display: flex; flex-direction: column; align-items: center; gap: 1.2rem; opacity: 0;
+  animation: amityIn 1s ease 0.4s both, amityOut 0.85s ease-in 2.6s forwards;
+}
+.amity-card { background: #fff; border-radius: 18px; padding: 1.1rem 1.7rem; max-width: 90vw;
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.55), 0 0 50px rgba(124, 58, 237, 0.35); }
+.amity-logo { display: block; width: clamp(180px, 46vw, 380px); max-width: 100%; height: auto; }
+.amity-presents {
+  font-family: var(--display); font-weight: 700; letter-spacing: 0.42em; text-transform: uppercase;
+  font-size: clamp(0.72rem, 2vw, 0.95rem);
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+@keyframes amityIn { from { opacity: 0; transform: translateY(20px) scale(0.94); } to { opacity: 1; transform: none; } }
+@keyframes amityOut { to { opacity: 0; transform: translateY(-90px) scale(0.9); } }
+
+/* ---- Phase 2: IML logo ---- */
+.splash-burst {
+  width: 42rem; height: 42rem; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.5), rgba(37, 99, 235, 0.22) 40%, rgba(236, 72, 153, 0.12) 60%, transparent 68%);
+  filter: blur(34px); opacity: 0; animation: splashBurst 3.6s ease-out 3s forwards;
+}
+.splash-logo {
+  width: clamp(190px, 58vw, 560px); max-width: 88vw; height: auto; opacity: 0;
+  filter: drop-shadow(0 0 38px rgba(124, 58, 237, 0.55));
+  animation: logoFade 1.3s cubic-bezier(0.2, 0.8, 0.2, 1) 2.9s both, logoOut 0.9s ease 6s forwards;
+}
+@keyframes logoFade { from { opacity: 0; transform: translateY(60px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes logoOut { to { opacity: 0; transform: scale(1.03); } }
+@keyframes splashBurst { 0% { opacity: 0; transform: scale(0.4); } 40% { opacity: 1; } 100% { opacity: 0; transform: scale(1.3); } }
+
+/* ---- Phase 2: tagline word-by-word — bold 3D, slightly overlapping ---- */
+.splash-words {
+  display: flex; flex-direction: column; align-items: center; gap: 0; text-align: center; padding: 0.5rem; width: 100%;
+}
+
+/* ---- Tagline as a full-screen window into the background video ---- */
+.splash-vtext { position: fixed; inset: 0; width: 100vw; height: 100%; height: 100dvh; padding: 0; pointer-events: none; }
+.splash-vtext .vt { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.vt-l {
+  font-family: var(--display); font-weight: 800; font-size: clamp(3rem, 20vw, 9rem); letter-spacing: -0.03em;
+  fill: #fff; opacity: 0;
+}
+.vt-video { width: 100%; height: 100%; object-fit: cover; }
+.vt-l.r1 { animation: vtIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 6.6s forwards; }
+.vt-l.r2 { animation: vtIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 7.1s forwards; }
+.vt-l.r3 { animation: vtIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 7.6s forwards; }
+@keyframes vtIn { from { opacity: 0; } to { opacity: 1; } }
+.sw {
+  font-family: var(--display); font-weight: 800; letter-spacing: -0.035em; line-height: 0.84; color: #fff; opacity: 0;
+  white-space: nowrap; font-size: clamp(4rem, 13vw, 8.5rem);
+  /* flat upright face + extruded 3D depth behind it (down-right) */
+  text-shadow:
+    1px 2px 0 #c4b5fd, 2px 4px 0 #a78bfa, 3px 6px 0 #8b5cf6,
+    4px 8px 0 #7c3aed, 5px 10px 0 #6d28d9, 6px 12px 0 #5b21b6,
+    7px 14px 0 #4338ca, 8px 16px 0 #2563eb,
+    9px 24px 34px rgba(0, 0, 0, 0.6);
+}
+.sw + .sw { margin-top: -0.06em; }            /* gentle overlap between stacked words */
+.sw.g { background: none; -webkit-text-fill-color: #fff; color: #fff; }  /* unified white face; depth comes from the 3D extrude */
+.sw:nth-child(1) { animation: swIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 6.6s forwards; }
+.sw:nth-child(2) { animation: swIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 7.1s forwards; }
+.sw:nth-child(3) { animation: swIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 7.6s forwards; }
+.sw:nth-child(4) { animation: swIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 8.1s forwards; }
+@keyframes swIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.94); filter: blur(4px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+
+/* fill more of the screen on smaller devices */
+@media (max-width: 1024px) { .sw { font-size: 16vw; } }
+@media (max-width: 768px)  { .sw { font-size: 22vw; } .splash-words { gap: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-logo { display: none; }
+  .splash-burst { animation: none; opacity: 0.6; }
+  .sw { animation: none; opacity: 1; }
+}
